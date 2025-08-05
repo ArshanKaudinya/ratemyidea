@@ -35,11 +35,13 @@ def build_prompt(idea: str):
     return f"""
 You are a brutally honest startup and project analyst. 
 Rate the following startup/product/project idea. Output in strict minified JSON.
+your scoring must not be generic and every metric must be justified in your thought process, including total score.
+the output must be exactly as defined.
 
 Startup idea: "{idea}"
 
 Analyze and return:
-- total_score: integer 0-100, what would you rate this idea realistically?
+- total_score: integer 0-100, rate this idea well, do give good ideas a high score and non-sense 0.
 - summary: 3-4 line objective summary (no hype)
 - metrics: for each metric below, assign a score (0-10, integer only), output as: [{{"name": <metric>, "score": <int>}}, ...]
   Metrics: {metrics_prompt}
