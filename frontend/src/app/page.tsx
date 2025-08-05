@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import IdeaForm from "./components/IdeaForm";
 import ScoreSummary from "./components/ScoreSummary";
@@ -28,7 +28,7 @@ export default function Home() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:8000/", {
+      const res = await fetch("https://ratemyidea.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ idea }),
@@ -47,6 +47,10 @@ export default function Home() {
     setError("");
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetch("https://ratemyidea.onrender.com/ping").catch(() => {});
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-white">

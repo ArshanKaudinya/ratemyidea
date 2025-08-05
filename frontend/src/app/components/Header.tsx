@@ -13,7 +13,7 @@ export default function Header({ onNewIdea }: { onNewIdea?: () => void }) {
         </span>
         <div className="flex items-center gap-3">
           <a
-            href="https://ko-fi.com/YOURKOFIUSERNAME"
+            href="https://ko-fi.com/arshankaudinya"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center cursor-pointer font-bold text-white"

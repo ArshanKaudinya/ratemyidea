@@ -58,6 +58,11 @@ Return only strict JSON in this exact schema:
 }}
 """
 
+@app.get("/ping")
+def ping():
+    return {"status": "ok"}
+
+
 @app.post("/")
 async def rate_my_idea(payload: IdeaRequest):
     idea = payload.idea
