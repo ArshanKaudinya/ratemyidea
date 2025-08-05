@@ -33,8 +33,8 @@ class IdeaRequest(BaseModel):
 def build_prompt(idea: str):
     metrics_prompt = "\n".join(f'- "{m}"' for m in METRICS)
     return f"""
-You are a brutally honest startup analyst. 
-Rate the following startup/product idea. Output in strict minified JSON.
+You are a brutally honest startup and project analyst. 
+Rate the following startup/product/project idea. Output in strict minified JSON.
 
 Startup idea: "{idea}"
 
