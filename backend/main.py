@@ -39,6 +39,7 @@ Rate the following startup/product idea. Output in strict minified JSON.
 Startup idea: "{idea}"
 
 Analyze and return:
+- total_score: integer 0-100, what would you rate this idea realistically?
 - summary: 3-4 line objective summary (no hype)
 - metrics: for each metric below, assign a score (0-10, integer only), output as: [{{"name": <metric>, "score": <int>}}, ...]
   Metrics: {metrics_prompt}
@@ -49,6 +50,7 @@ Analyze and return:
 
 Return only strict JSON in this exact schema:
 {{
+  "total_score": 0,
   "summary": "...",
   "metrics": [{{"name": "...", "score": 0}}, ...],
   "strengths": ["...", "..."],
@@ -91,7 +93,7 @@ async def rate_my_idea(payload: IdeaRequest):
     return {
         "summary": data["summary"],
         "metrics": data["metrics"],
-        "total_score": scaled_total,
+        "total_score": data["total_score"],
         "max_score": 100,
         "strengths": data["strengths"],
         "weaknesses": data["weaknesses"],
