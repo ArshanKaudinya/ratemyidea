@@ -32,10 +32,20 @@ export default function IdeaForm({ onSubmit, loading }: { onSubmit: (idea: strin
           color: "#fff",
           fontWeight: 700,
         }}
-        className="py-3 px-5 rounded-lg shadow transition hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed self-center"
+        className="py-3 px-5 rounded-lg shadow transition hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed self-center flex items-center gap-2"
       >
+        {loading && (
+          <span className="inline-block animate-spin rounded-full border-2 border-t-transparent border-white h-5 w-5 mr-2"></span>
+        )}
         {loading ? "Analyzing..." : "Rate My Idea"}
       </button>
+      {loading && (
+        <div className="text-xs text-center text-gray-500 mt-[-8px]">
+          <span>
+            First request may take up to 45 seconds to boot the server. Subsequent requests are much faster.
+          </span>
+        </div>
+      )}
     </form>
   );
 }
